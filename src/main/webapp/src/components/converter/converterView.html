@@ -1,0 +1,56 @@
+<div class="container">
+	<form id="conversionForm" name="conversionForm" novalidate ng-submit="convert(value, convertedResponse.fromCurrency.code, convertedResponse.toCurrency.code)">
+		<div class="row">
+			<div class="col-xs-12">
+				<p class="text-center">
+					1
+					<span id="fromCurrency">{{convertedResponse.fromCurrency.name}}</span>&nbsp;
+					<br>
+					equals
+					<br>
+					<span id="exchangeRate">{{convertedResponse.exchangeRate}}</span>&nbsp;
+					<span id="toCurrency">{{convertedResponse.toCurrency.name}}</span>
+				</p>
+			</div>
+		</div>
+		
+		<div class="row btm-spacer">
+			<div class="col-xs-6">
+				<input required id="value"
+					class="form-control"  
+					placeholder="Amount" 
+					name="value" 
+					type="number" 
+					ng-model="value" 
+					ng-change="convert(value, convertedResponse.fromCurrency.code, convertedResponse.toCurrency.code)" />
+			</div>
+			<div class="col-xs-6">
+				<input required id="fromCode" 
+					class="form-control"
+					placeholder="From Currency" 
+					name="fromCode" 
+					type="text" 
+					ng-model="convertedResponse.fromCurrency.code" 
+					typeahead="currency for currency in supportedCurrenciesList | filter:$viewValue | limitTo:8" />
+			</div>
+		</div>
+		<div class="row btm-spacer">
+			<div class="col-xs-6">
+				<span id="convertedValue" class="form-control">{{convertedResponse.convertedValue}}</span>
+			</div>
+			<div class="col-xs-6">
+				<input required id="toCode" 
+					class="form-control" 
+					placeholder="To Currency" 
+					name="toCode" 
+					type="text" 
+					ng-model="convertedResponse.toCurrency.code" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<input class="form-control btn btn-primary" type="submit" value="Convert" />
+			</div>
+		</div>
+	</form>
+</div>

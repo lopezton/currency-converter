@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" name="derbySoftCache">
+	<diskStore path="java.io.tmpdir" />
+
+	<!-- Default cache region settings -->
+	<defaultCache maxElementsInMemory="50000" eternal="false"
+		timeToIdleSeconds="3600" timeToLiveSeconds="43200" overflowToDisk="false"
+		maxElementsOnDisk="0" memoryStoreEvictionPolicy="LRU" statistics="true" />
+
+	<cache name="currency_conversion" eternal="false"
+		maxElementsInMemory="500" overflowToDisk="false" timeToLiveSeconds="300"
+		statistics="true" />
+
+</ehcache>
